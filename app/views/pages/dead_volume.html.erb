@@ -1,0 +1,28 @@
+<h2>Here I'll calculate the dead volume of a piece of tubing for you.</h2>
+
+<% form_tag url_for(:action => :calculate), :remote => true do %>
+  <div id="internal_diameter">
+    <label for="diameter">Enter the internal diameter:</label>
+    <%= text_field_tag :diameter %>
+    <label for="diameter_unit"></label>
+    <%= select_tag :diameter_unit, options_for_select({
+      "Microns" => 'micrometers', 
+      'inches' => 'inches'
+    })  %>  
+  </div>
+  <div id="length">
+    <label for="length">Enter the length of tubing:</label>
+    <%= text_field_tag :length %>
+    <label for="length_unit"></label>
+    <%= select_tag :length_unit, options_for_select({
+      "meters" => 'meters', 
+      "inches" => 'inches'
+    })  %>
+  </div>
+  <%= submit_tag "Calculate!" %>
+<% end %>
+
+<div class="output">
+  <span>The volume of the tubing parameters entered is:</span> 
+ 
+</div>
