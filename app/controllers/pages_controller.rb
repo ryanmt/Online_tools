@@ -7,8 +7,8 @@ class PagesController < ApplicationController
     @object = Object.new
   end
   
-  def calculate(hash)
-    hash.inspect
+  def calculate
+    @object = params.inspect
     
   end
 end

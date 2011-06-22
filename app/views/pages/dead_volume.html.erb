@@ -1,6 +1,6 @@
 <h2>Here I'll calculate the dead volume of a piece of tubing for you.</h2>
 
-<% form_tag url_for(:action => :calculate), :remote => true do %>
+<%= form_tag url_for(:method => :get), :remote => true, :id => 'calculation_entry' do %>
   <div id="internal_diameter">
     <label for="diameter">Enter the internal diameter:</label>
     <%= text_field_tag :diameter %>
@@ -24,5 +24,5 @@
 
 <div class="output">
   <span>The volume of the tubing parameters entered is:</span> 
- 
+ <%= @object %>
 </div>
