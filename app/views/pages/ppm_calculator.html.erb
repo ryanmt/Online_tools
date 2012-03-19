@@ -1,0 +1,14 @@
+<h2 class="title">Here I'll calculate the ppm accuracy of a measured mass for you</h2>
+
+<%= form_tag({}, method: :get, remote: true, id: 'calculation_entry') do %>
+  <div id="measured">
+    <label for="measured"> Enter measured mass: </label>
+    <%= text_field_tag :measured %>
+  </div>
+  <div id="known">
+    <label for="known"> Enter known mass: </label>
+    <%= text_field_tag :known %>
+  </div>
+  <%= submit_tag "Calculate!" %>
+<% end %>
+<div id="output"> </div>

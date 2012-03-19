@@ -12,7 +12,16 @@ class PagesController < ApplicationController
     length = length / 39.3700787 if length_unit != 'meter'
     radius = radius / 3.93700787e-5 if diameter_unit != 'micrometer'
     @answer = (radius**2) * Math::PI * length * 1e-3
-    puts "@answer = #{@answer}"
+    respond_to do |format|
+      format.js 
+      format.html
+    end
+  end
+
+  def ppm_calculator
+    measured = params[:measured] ? params[:measured].to_f : 1
+    known = params[:known] ? params[:known].to_f : 1
+    @answer = (measured-known)/known *1e6
     respond_to do |format|
       format.js 
       format.html
