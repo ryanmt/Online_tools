@@ -27,4 +27,20 @@ class PagesController < ApplicationController
       format.html
     end
   end
+
+  def charge_states
+# TODO extend this with the actual mspire isotope masses instead of my hacked info
+    @max_charge_state = 4
+    proton = 1.00794
+    if params[:entry_mass]
+      @answer = (1..@max_charge_state).map(&:to_f).map do |z|
+        ans = (params[:entry_mass].to_f + z*proton)/z
+      end
+    end
+    @answer ||= nil
+    respond_to do |format|
+      format.js 
+      format.html
+    end
+  end
 end

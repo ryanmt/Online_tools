@@ -1,0 +1,14 @@
+<% if @answer %>
+  <table id="charge_states">
+    <tr>
+      <% (1..4).to_a.each do |charge| %>
+        <th>z = <%= charge.to_s%> </th>
+      <% end %>
+    </tr>
+    <tr>
+      <% @answer.each do |ans| %>
+        <td> <%= "%4f" % ans.to_f %> </td> 
+      <% end %>
+    </tr>
+  </table>
+<% end %>
